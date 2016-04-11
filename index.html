@@ -1,0 +1,123 @@
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="pizza.js"></script>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <hr class="featurette-divider">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-primary text-center">
+                        BUILD YOUR OWN PIZZA
+                    </h1>
+                </div>
+            </div>
+            <hr class="featurette-divider">
+
+
+            <div class="row" id="div-crust">
+                <div class="col-md-4">
+                    <h2 class="text-primary text-left">
+                        CHOOSE A CRUST STYLE
+                    </h2>
+                </div>
+
+                <div class="col-md-4" id="div-cheese">
+                    <h2 class="text-primary text-left">
+                        CHOOSE CHEESE AND SAUCES
+                    </h2>
+                </div>
+
+                <div class="col-md-4" id="div-toppings">
+                    <h2 class="text-primary text-left">
+                        CHOOSE TOPPINGS
+                    </h2>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="progress">
+                        <div class="progress-bar progress-success">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="featurette-divider">
+
+            <div class="row">
+                <div class="col-md-4" id="pizthin">
+                    <h3 class="text-info">
+                        THIN CRUST
+                    </h3>
+                    <img src="thincrust.jpg">
+                    <p>
+                        Thin enough for the optimum crispy to crunchy ratio.
+                    </p>
+                </div>
+                <div class="col-md-4" id="pizhand">
+                    <h3 class="text-info">
+                        HAND TOSSED
+                    </h3>
+                    <img src="hand.jpg">
+                    <p>
+                        Two layers of cheese, toppings to the edge, and a crust that bakes up golden and crispy with a buttery taste.
+                    </p>
+                </div>
+                <div class="col-md-4" id="pizpan">
+                    <h3 class="text-info">
+                        PERSONAL PAN
+                    </h3>
+                    <img src="pan.jpg">
+                    <p>
+                        Two layers of cheese, toppings to the edge, and a crust that bakes up golden and crispy with a buttery taste.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn btn-lg  btn-primary" id="order_thin">Pick!</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-lg  btn-primary" id="order_hand">Pick!</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-lg  btn-primary" id="order_pan">Pick!</button>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <button type="button" class="btn btn-lg btn-block active btn-success" onclick="location.href = 'cheeses.html'">
+                        BUILD
+                    </button>
+                </div>
+                <div class="col-md-6">
+
+                    <button type="button" class="btn btn-block btn-lg" onclick="sessionStorage.clear()">
+                        CANCEL
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="carousel"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

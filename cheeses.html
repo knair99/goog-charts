@@ -1,0 +1,172 @@
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="pizza.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <hr class="featurette-divider">
+
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="col-md-12">
+                        <h1 class="text-primary text-center">
+                            BUILD YOUR OWN PIZZA
+                        </h1>
+                    </div>
+                <hr class="featurette-divider">
+            </div>
+        </div>
+
+        <div class="row" id="div-crust">
+            <div class="col-md-4">
+                <h2 class="text-primary text-left">
+                    CHOOSE A CRUST STYLE
+                </h2>
+            </div>
+
+            <div class="col-md-4" id="div-cheese">
+                <h2 class="text-primary text-left">
+                    CHOOSE CHEESE AND SAUCES
+                </h2>
+            </div>
+
+            <div class="col-md-4" id="div-toppings">
+                <h2 class="text-primary text-left">
+                    CHOOSE TOPPINGS
+                </h2>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="progress active progress-striped">
+                    <div class="progress-bar progress-success" id="progressBar" style="width:33.33%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="cheese_sauce">
+            <div class="col-md-6">
+                <h3>Choose your cheese</h3>
+                <img src = "cheese.jpg"> <br><br><br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="cheese" value="Parmesan"> Parmesan
+                    </div>
+                    <div class="col-md-3">
+                        <input id="parm_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="cheese" value="Mozarella"> Mozarella <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="moz_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="cheese" value="American"> American <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="american_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="cheese" value="Pepperjack"> Pepperjack <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="pepperjack_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="cheese" value="Swiss"> Swiss <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="swiss_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <h3>Choose your sauces</h3>
+                <img src = "sauces.jpg"> <br><br><br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="sauce" value="Marinara"> Marinara <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="marinara_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="sauce" value="White"> White BBQ <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="white_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="sauce" value="Tomato"> Vine ripened tomato <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="tomato_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="sauce" value="No"> Garlic sauce <br>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="garlic_slider" type="range" min="0" max="5" step="1" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <button type="button" class="btn btn-lg btn-block active btn-success" onclick="location.href='toppings.html'">
+                    BUILD
+                </button>
+            </div>
+            <div class="col-md-6">
+
+                <button type="button" class="btn btn-block btn-lg" onclick="location.href='index.html'; sessionStorage.clear() ">
+                    CANCEL
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
