@@ -4,7 +4,6 @@ function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Topping');
     data.addColumn('number', 'Slices');
-
     var stuff = ["parm_slider",
         "moz_slider",
         "american_slider",
@@ -25,7 +24,6 @@ function drawChart() {
         "mushroom_slider",
         "tomatoes_slider"
     ];
-
     var calories = ["200",
         "300",
         "200",
@@ -46,43 +44,35 @@ function drawChart() {
         "20",
         "20"
     ];
-
-    for(var i= 0; i< stuff.length; i++){
-
-        var s =  stuff[i];
+    for (var i = 0; i < stuff.length; i++) {
+        var s = stuff[i];
         console.log(s);
-
-        if(sessionStorage.getItem(s) !== null){
+        if (sessionStorage.getItem(s) !== null) {
             var val = sessionStorage.getItem(s);
             console.log(val);
             var count = parseInt(val);
-            if(count !== null){
+            if (count !== null) {
                 s = s.replace(/_slider/gi, "");
                 data.addRow([s, count]);
             }
         }
     }
-
-
     // Set chart options
-    var options = {'title':'PIZZA BREAKDOWN',
-        'width':700,
-        'height':700,
+    var options = {
+        'title': 'PIZZA BREAKDOWN',
+        'width': 700,
+        'height': 700,
         'is3D': true,
         'pieStartAngle': 0,
-        'pieSliceText': 'label'};
-
-
+        'pieSliceText': 'label'
+    };
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
     chart.draw(data, options);
-
-
     ////////////////CHEESE WARS////////////
     var data2 = new google.visualization.DataTable();
     data2.addColumn('string', 'CHEESE');
     data2.addColumn('number', 'Slices');
-
     var cheeses = ["parm_slider",
         "moz_slider",
         "american_slider",
@@ -91,72 +81,151 @@ function drawChart() {
         "white_slider",
         "tomato_slider"
     ];
-
-    for(var i= 0; i< cheeses.length; i++){
-
-        var s =  cheeses[i];
+    for (var i = 0; i < cheeses.length; i++) {
+        var s = cheeses[i];
         console.log(s);
-
-        if(sessionStorage.getItem(s) !== null){
+        if (sessionStorage.getItem(s) !== null) {
             var val = sessionStorage.getItem(s);
             console.log(val);
             var count = parseInt(val);
-            if(count !== null){
+            if (count !== null) {
                 s = s.replace(/_slider/gi, "");
                 data2.addRow([s, count]);
             }
         }
     }
-
     // Set chart options
-    var options = {'title':'CHEESE v SAUCE WARS',
-        'width':700,
-        'height':700,
+    var options = {
+        'title': 'CHEESE v SAUCE WARS',
+        'width': 700,
+        'height': 700,
         'is3D': true,
         'pieStartAngle': 0,
-        'pieSliceText': 'label'};
-
+        'pieSliceText': 'label'
+    };
     var chart2 = new google.visualization.PieChart(document.getElementById('cheese_div'));
     chart2.draw(data2, options);
-
-
     ////////////////calories//////////////
-
     var data3 = new google.visualization.DataTable();
     data3.addColumn('string', 'Item');
     data3.addColumn('number', 'Calories');
-
-    for(var i= 0; i< stuff.length; i++){
-
-        var s =  stuff[i];
+    for (var i = 0; i < stuff.length; i++) {
+        var s = stuff[i];
         console.log(s);
-
-        if(sessionStorage.getItem(s) !== null){
+        if (sessionStorage.getItem(s) !== null) {
             var val = sessionStorage.getItem(s);
             console.log(val);
             var count1 = parseInt(val);
             var count = count1 * calories[i];
-
-            if(count !== null){
+            if (count !== null) {
                 s = s.replace(/_slider/gi, "");
-                data3.addRow([s + '(' + count1 + ')' , count]);
+                data3.addRow([s + '(' + count1 + ')', count]);
             }
+        }
+    }
+    var options3 = {
+        title: 'CALORIE BREAKDOWN',
+        legend: {position: 'top', maxLines: 2},
+        height: 700
+    };
+    var chart3 = new google.visualization.Histogram(document.getElementById('calories_div'));
+    chart3.draw(data3, options3);
+
+
+    ///////////////sankey////////////////////
+
+    var data4 = new google.visualization.DataTable();
+    data4.addColumn('string', 'Cheeese');
+    data4.addColumn('string', 'Toppings');
+    data4.addColumn('number', 'No of items');
+
+    var toppings = [
+        "bacon_slider",
+        "pepperoni_slider",
+        "italian_slider",
+        "beef_slider",
+        "ham_slider",
+        "black_slider",
+        "garlic_slider",
+        "banana_slider",
+        "onion_slider",
+        "Pineapple_slider",
+        "mushroom_slider",
+        "tomatoes_slider"];
+
+    var crust = ["parm_slider",
+        "moz_slider",
+        "american_slider",
+        "pepperjack_slider"];
+
+    for (var i = 0; i < crust.length; i++) {
+
+        var cr = crust[i];
+        cr = cr.replace(/slider/gi, "");
+
+        for(var j = 0; j < cheeses.length; j++){
+
+            var ch = cheeses[i];
+
+            if (sessionStorage.getItem(ch) !== null) {
+                var val = sessionStorage.getItem(ch);
+                var count = parseInt(val);
+
+                if (count !== null) {
+                    ch = ch.replace(/_slider/gi, "");
+                    data4.addRow([cr, ch, count]);
+                }
+            }
+
         }
     }
 
 
-    var options3 = {
-        title: 'CALORIE BREAKDOWN',
-        legend: { position: 'top', maxLines: 2  },
-        width: 500,
-        height: 600
+
+    for (var i = 0; i < cheeses.length; i++) {
+
+        var ch = cheeses[i];
+        ch = ch.replace(/slider/gi, "");
+
+        for(var j = 0; j < toppings.length; j++){
+
+            var tp = toppings[i];
+
+            if (sessionStorage.getItem(tp) !== null) {
+                var val = sessionStorage.getItem(tp);
+                var count = parseInt(val);
+
+                if (count !== null) {
+                    tp = tp.replace(/_slider/gi, "");
+                    data4.addRow([ch, tp, count]);
+                }
+            }
+
+        }
+    }
+
+
+
+    // Sets chart options.
+    var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
+        '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
+
+    var options = {
+        height: 700,
+        sankey: {
+            node: {
+                colors: colors
+            },
+            link: {
+                colorMode: 'gradient',
+                colors: colors
+            }
+        }
     };
-
-    var chart3 = new google.visualization.Histogram(document.getElementById('calories_div'));
-    chart3.draw(data3, options3);
-
+    // Instantiates and draws our chart, passing in some options.
+    var chart4 = new google.visualization.Sankey(document.getElementById('sankey'));
+    chart4.draw(data4, options);
 }
-
 
 
 $(document).ready(function() {

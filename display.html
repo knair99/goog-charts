@@ -13,7 +13,7 @@
 <script type="text/javascript">
 
     // Load the Visualization API and the corechart package.
-    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', {'packages':['corechart', 'sankey']});
 
     // Set a callback to run when the Google Visualization API is loaded.
     google.charts.setOnLoadCallback(drawChart);
@@ -34,22 +34,29 @@
             <hr class="featurette-divider">
 
             <div class ="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div id="chart_div"> </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div id="cheese_div"> </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div id="calories_div"> </div>
-                </div>
             </div>
 
+            <div class ="row">
 
+                <div class="col-md-12">
+                    <div id="calories_div"> </div>
+                </div>
+                </div>
 
-        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="sankey"> </div>
+                </div>
+
+            </div>
     </div>
 
 </body>
